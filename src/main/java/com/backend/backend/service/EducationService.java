@@ -30,8 +30,7 @@ public class EducationService implements IEducationService{
     }
 
     @Override
-    public void updateEducation() {
-        
+    public void updateEducation(Education edu) {
+        eduRepo.save(edu);
     }
-    
 }

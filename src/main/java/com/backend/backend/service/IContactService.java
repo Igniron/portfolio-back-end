@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IContactService {
     
-    public Contact getContact(Long id);
-    public void updateContact ();
+    public List<Contact> getContact();
+    public void updateContact (Contact con);
 }

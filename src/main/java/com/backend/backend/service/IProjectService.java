@@ -11,6 +11,6 @@ public interface IProjectService {
     public List<Project> getProject();
     public void createProject (Project pro);
     public void deleteProject (Long id);
-    public void updateProject ();
+    public void updateProject (Project pro);
     
 }

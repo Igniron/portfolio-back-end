@@ -9,6 +9,6 @@ public interface IEducationService {
     public List<Education> getEducation();
     public void createEducation (Education edu);
     public void deleteEducation (Long id);
-    public void updateEducation ();
+    public void updateEducation (Education edu);
     
 }

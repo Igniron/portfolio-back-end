@@ -31,8 +31,8 @@ public class ProjectService implements IProjectService{
     }
 
     @Override
-    public void updateProject() {
-        
+    public void updateProject(Project pro) {
+        proRepo.save(pro);
     }
     
     

@@ -1,3 +1,4 @@
+
 package com.backend.backend.model;
 
 import jakarta.persistence.Entity;
@@ -8,31 +9,30 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+
+
 @Getter @Setter
 @Entity
-public class Person {
+public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    private String name;
-    private String profession;
-    private String description;
-    private String img;
+    private String user;
+    private String password;
     
-    public Person()
+    
+    public User ()
     {
-
+        
     }
-
-    public Person( Long id, String name, String profession, String description, String img)
+    
+    public User( Long id, String user, String password)
     {
         this.id = id;
-        this.name = name;
-        this.profession = profession;
-        this.description = description;
-        this.img = img;
+        this.user = user;
+        this.password = password;
     }
-    
+            
 }
