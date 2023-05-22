@@ -11,6 +11,7 @@ com\backend\backend\model\Project.class
 com\backend\backend\service\ProjectService.class
 com\backend\backend\service\IUserService.class
 com\backend\backend\service\IPersonService.class
+com\backend\backend\config\WebConfig.class
 com\backend\backend\model\User.class
 com\backend\backend\service\PersonService.class
 com\backend\backend\controller\Controller.class
