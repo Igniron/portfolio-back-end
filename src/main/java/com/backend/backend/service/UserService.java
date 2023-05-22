@@ -3,7 +3,8 @@ package com.backend.backend.service;
 
 import com.backend.backend.model.User;
 import com.backend.backend.repository.UserRepository;
-import java.util.List;
+
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,8 +17,9 @@ public class UserService implements IUserService{
     public UserRepository userRepo;
 
     @Override
-    public List<User> getUser() {
-        return userRepo.findAll();
+    public User getUser(Long id) {
+        Optional<User> optionalUser = userRepo.findById(id);
+        return optionalUser.orElse(null);
     }
     
     

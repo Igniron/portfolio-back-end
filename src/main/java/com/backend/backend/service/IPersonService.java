@@ -3,11 +3,10 @@ package com.backend.backend.service;
 
 
 import com.backend.backend.model.Person;
-import java.util.List;
 
 public interface IPersonService {
     
-    public List<Person> getPerson();
+    public Person getPerson(Long id);
     
     public void updatePerson (Person per);
     

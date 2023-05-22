@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,9 +42,9 @@ public class Controller {
     
     @GetMapping("/get/person")
     @ResponseBody
-    public List<Person> getPerson()
+    public Person getPerson(@RequestParam Long id)
     {
-       return persServ.getPerson();
+       return persServ.getPerson(id);
     }
     
     @GetMapping("/get/education")
@@ -63,38 +63,27 @@ public class Controller {
     
     @GetMapping("/get/contact")
     @ResponseBody
-    public List<Contact> getContact()
+    public Contact getContact(@RequestParam Long id)
     {
-        return contServ.getContact();
+        return contServ.getContact(id);
     }
     
     @GetMapping("/get/user")
     @ResponseBody
-    public List<User> getUser()
+    public User getUser(@RequestParam Long id)
     {
-        return userServ.getUser();
+        return userServ.getUser(id);
     }
     
     @PostMapping("/new/project")
-    public void createProject (@RequestParam String title, @RequestParam String description, @RequestParam String link, @RequestParam String img)
+    public void createProject (@RequestBody Project pro)
     {
-        Project pro = new Project();
-        pro.setTitle(title);
-        pro.setDescription(description);
-        pro.setLink(link);
-        pro.setImg(img);
         proServ.createProject(pro);
     }
     
     @PostMapping("/new/education")
-    public void createEducation(@RequestParam String name, @RequestParam String title, @RequestParam String state, @RequestParam String average, @RequestParam String link)
+    public void createEducation(@RequestBody Education edu)
     {
-        Education edu = new Education();
-        edu.setName(name);
-        edu.setTitle(title);
-        edu.setState(state);
-        edu.setAverage(average);
-        edu.setLink(link);
         eduServ.createEducation(edu);
     }
     
