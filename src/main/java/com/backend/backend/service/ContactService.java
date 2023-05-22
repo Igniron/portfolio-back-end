@@ -3,7 +3,7 @@ package com.backend.backend.service;
 
 import com.backend.backend.model.Contact;
 import com.backend.backend.repository.ContactRepository;
-import java.util.Optional;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +16,8 @@ public class ContactService implements IContactService{
     public ContactRepository conRepo;
     
     @Override
-    public Contact getContact(Long id) {
-       Optional<Contact> optionalContact = conRepo.findById(id);
-       return optionalContact.orElse(null);
+    public List<Contact> getContact() {
+       return conRepo.findAll();
     }
 
     @Override

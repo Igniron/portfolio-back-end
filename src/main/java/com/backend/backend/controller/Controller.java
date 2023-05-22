@@ -42,9 +42,9 @@ public class Controller {
     
     @GetMapping("/get/person")
     @ResponseBody
-    public Person getPerson(@RequestParam Long id)
+    public List<Person> getPerson()
     {
-       return persServ.getPerson(id);
+       return persServ.getPerson();
     }
     
     @GetMapping("/get/education")
@@ -63,16 +63,16 @@ public class Controller {
     
     @GetMapping("/get/contact")
     @ResponseBody
-    public Contact getContact(@RequestParam Long id)
+    public List<Contact> getContact()
     {
-        return contServ.getContact(id);
+        return contServ.getContact();
     }
     
     @GetMapping("/get/user")
     @ResponseBody
-    public User getUser(@RequestParam Long id)
+    public List<User> getUser()
     {
-        return userServ.getUser(id);
+        return userServ.getUser();
     }
     
     @PostMapping("/new/project")
@@ -101,26 +101,55 @@ public class Controller {
     }
     
     @PostMapping("/update/person")
-    public void updatePerson(@RequestBody Person per)
+    public void updatePerson(@RequestParam Long id, @RequestParam String name, @RequestParam String profession, @RequestParam String description, @RequestParam String img)
     {
+        Person per = new Person();
+        per.setId(id);
+        per.setName(name);
+        per.setProfession(profession);
+        per.setDescription(description);
+        per.setImg(img);
         persServ.updatePerson(per);
     }
     
      @PostMapping("/update/education")
-    public void updateEducation(@RequestBody Education edu)
+    public void updateEducation(@RequestParam Long id,@RequestParam String name, @RequestParam String title, @RequestParam String state, @RequestParam String average, @RequestParam String link)
     {
+        Education edu = new Education();
+        edu.setId(id);
+        edu.setName(name);
+        edu.setTitle(title);
+        edu.setState(state);
+        edu.setAverage(average);
+        edu.setLink(link);
         eduServ.updateEducation(edu);
     }
     
      @PostMapping("/update/project")
-    public void updateProject(@RequestBody Project pro)
+    public void updateProject(@RequestParam Long id, @RequestParam String title, @RequestParam String description, @RequestParam String link, @RequestParam String img)
     {
+        Project pro = new Project();
+        pro.setId(id);
+        pro.setTitle(title);
+        pro.setDescription(description);
+        pro.setLink(link);
+        pro.setImg(img);
         proServ.updateProject(pro);
     }
     
      @PostMapping("/update/contact")
-    public void updateContact(@RequestBody Contact con)
+    public void updateContact(@RequestParam Long id, @RequestParam String home, @RequestParam String location, @RequestParam String phone, @RequestParam String email, @RequestParam String instagram, @RequestParam String twitter, @RequestParam String linkedin, @RequestParam String github)
     {
+        Contact con = new Contact();
+        con.setId(id);
+        con.setHome(home);
+        con.setLocation(location);
+        con.setPhone(phone);
+        con.setEmail(email);
+        con.setInstagram(instagram);
+        con.setTwitter(twitter);
+        con.setLinkedin(linkedin);
+        con.setGithub(github);
         contServ.updateContact(con);
     }
   
